@@ -1,0 +1,208 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
+}
+
+header{
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+    width: 100%;
+    padding: 10px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0aacdc;
+}
+header .logo h2 a{
+    color:white;
+    font-size: 30px;
+}
+header .logo h2 a{
+    text-decoration: none;
+}
+.form-busca form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.form-busca i{
+    position: absolute;
+    left: 5%;
+    color:white;
+    font-size: 20px;
+}
+
+.form-busca input{
+    height:40px;
+    width:100%;
+    border:0;
+    outline: none;
+    font-size: 18px;
+    color:white;
+    background-color: #008bb4;
+    padding-left: 40px;
+    border-radius:10px;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+  }
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: white;
+}
+
+section.noticia-destaque{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section.noticia-destaque > .center{
+    width: 960px;
+    height: 550px;
+}
+
+/* ############################################################ */
+
+.img-destaque{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.img-destaque img{
+    width:100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.title-destaque-descricao{
+    position: absolute;
+    bottom:0;
+    left:0;
+    padding: 2em;
+    max-width: 700px;
+    color:white;
+    z-index: 2;
+}
+.title-destaque-descricao a{
+    text-decoration: none;
+}
+.title-destaque-descricao a h1{
+    font-size: 3em;
+    font-weight: 800;
+    color: #ffffff;
+}
+.title-destaque-descricao p{
+    font-size: 1em;
+    font-weight: 300;
+    color: #ffffff;
+}
+.overlay-destaque{
+    position: absolute;
+    left:0;
+    top:0;
+    border-radius: 10px;
+    width:100%;
+    height:100%;
+    background-color:rgba(0,0,0,0.4);
+    z-index: 1;
+}
+
+/* ########################## */
+
+.content-noticias{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #eaeaea;
+}
+.content-noticias .title-news{
+    font-size: 3em;
+    text-align: center;
+    color: #040404;
+    opacity: 1;
+}
+.content-noticias .ultimas-noticias{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.content-noticias .ultimas-noticias .noticias{
+    width: 70%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.content-noticias .ultimas-noticias .noticias .box-news{
+    width: 295px;
+    height: 440px;
+    background-color: #ffffff;
+    margin: 5px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.content-noticias .ultimas-noticias .noticias .box-news img{
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+}
+.content-noticias .ultimas-noticias .noticias .box-title-news{
+    padding: 30px;
+}
+.content-noticias .ultimas-noticias .noticias .box-title-news span{
+    letter-spacing: 1.2px;
+    color: #33439B;
+    opacity: 1;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 12px;
+}
+.content-noticias .ultimas-noticias .noticias .box-title-news a{
+    color: #00e5ff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+}
+.content-noticias .ultimas-noticias .noticias .box-title-news h1{
+    padding-top: 5px;
+    font-size: 20px;
+    color: #303336;
+    opacity: 1;
+}
+.content-noticias .ultimas-noticias .noticias .box-title-news p{
+    font-size: 14px;
+    color: #7B8591;
+    opacity: 1;
+}
+
+/* ########################################## */
+
+footer{
+    width: 100%;
+    padding: 10px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0aacdc;
+}
+footer p{
+    font-size: 18px;
+    color: #ffffff;
+}
