@@ -9,6 +9,10 @@
 </head>
 <body>
     <header>
+        <div class="logo">
+            <h2><a href="/"><span style="font-weight:lighter;">Jona</span><b>News</b></a></h2>
+        </div>
+
         <h1>Cadastro de noticia</h1>
     </header>
 
@@ -35,7 +39,10 @@
     <% for(let i = 0; i < posts.length; i++) { %>
             <div class="noticia-single">
                 <h2>Titulo: <%= posts[i].titulo %></h2>
-                <a href="/admin/deletar/<%= posts[i].id %>">Deletar</a>
+                <div class="bts-link">
+                    <a class="ver" href="/<%= posts[i].slug %>">Ver noticia</a>
+                    <a class="delete" href="/admin/deletar/<%= posts[i].id %>">Deletar</a>
+                </div>
             </div>
         <% } %>
 </body>

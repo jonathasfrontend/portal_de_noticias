@@ -71,25 +71,24 @@ section.noticia-destaque{
     justify-content: center;
 }
 
-section.noticia-destaque > .center{
-    width: 960px;
-    height: 550px;
+section.noticia-destaque .center{
+    width: 100%;
+    height: 100%;
 }
 
 /* ############################################################ */
 
-.img-destaque{
+.noticia-destaque .center .img-destaque{
     width: 100%;
     height: 100%;
     position: relative;
 }
-.img-destaque img{
+.noticia-destaque .center .img-destaque img{
     width:100%;
     height: 100%;
-    border-radius: 10px;
     object-fit: cover;
 }
-.title-destaque-descricao{
+.noticia-destaque .center .img-destaque .title-destaque-descricao{
     position: absolute;
     bottom:0;
     left:0;
@@ -98,27 +97,27 @@ section.noticia-destaque > .center{
     color:white;
     z-index: 2;
 }
-.title-destaque-descricao a{
+.noticia-destaque .center .img-destaque .title-destaque-descricao a{
     text-decoration: none;
 }
-.title-destaque-descricao a h1{
+.noticia-destaque .center .img-destaque .title-destaque-descricao a h1{
     font-size: 3em;
     font-weight: 800;
     color: #ffffff;
 }
-.title-destaque-descricao p{
+.noticia-destaque .center .img-destaque .title-destaque-descricao p{
     font-size: 1em;
     font-weight: 300;
     color: #ffffff;
 }
-.overlay-destaque{
+.noticia-destaque .center .img-destaque .overlay-destaque{
     position: absolute;
     left:0;
     top:0;
     border-radius: 10px;
     width:100%;
     height:100%;
-    background-color:rgba(0,0,0,0.4);
+    background: linear-gradient(180deg, #0000006e 10%, #00000017 50%, #0000006e 100%);
     z-index: 1;
 }
 
@@ -130,12 +129,14 @@ section.noticia-destaque > .center{
     justify-content: center;
     width: 100%;
     height: 100%;
-    background-color: #eaeaea;
+    background-color: #ebebeb;
 }
 .content-noticias .title-news{
-    font-size: 3em;
-    text-align: center;
-    color: #040404;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #008bb4;
+    font-size: 20px;
+    color: #ffffff;
     opacity: 1;
 }
 .content-noticias .ultimas-noticias{
@@ -143,6 +144,7 @@ section.noticia-destaque > .center{
     height: 100%;
     display: flex;
     align-items: center;
+    padding: 2em 20px;
 }
 .content-noticias .ultimas-noticias .noticias{
     width: 70%;
