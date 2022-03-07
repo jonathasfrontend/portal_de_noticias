@@ -36,7 +36,6 @@ app.set('views', path.join(__dirname, '/pages'));
 app.get('/',(req,res)=>{
     if(req.query.busca == null){
         Posts.find({}).sort({'_id': -1}).exec(function(err,posts){
-            // console.log(posts[0]);
             posts = posts.map(function(val){
                 return{
                     titulo: val.titulo,
@@ -48,26 +47,24 @@ app.get('/',(req,res)=>{
                 }
             })
 
-            Posts.find({}).sort({'vews': 1}).limit(4).exec(function(err,postsTop){
-                 postsTop = postsTop.map(function(val){
-                         return {
-                             titulo: val.titulo,
-                             conteudo: val.conteudo,
-                             descricaoCurta: val.conteudo.substr(0,100),
-                             imagem: val.imagem,
-                             slug: val.slug,
-                             categoria: val.categoria,
-                             vews: val.vews
-                         }
-                 })
-                 res.render('home',{posts:posts,postsTop:postsTop});
-             })
+        Posts.find({}).sort({'vews': 1}).limit(6).exec(function(err,postsTop){
+                postsTop = postsTop.map(function(val){
+                        return {
+                            titulo: val.titulo,
+                            conteudo: val.conteudo,
+                            descricaoCurta: val.conteudo.substr(0,100),
+                            imagem: val.imagem,
+                            slug: val.slug,
+                            categoria: val.categoria,
+                            vews: val.vews
+                        }
+                })
+                res.render('home',{posts:posts,postsTop:postsTop});
+            })
 
-            // res.render('home',{posts:posts});
         })
     }else{
         Posts.find({titulo: {$regex: req.query.busca, $options: 'i'}},function(err,posts){
-            // console.log(posts);
             posts = posts.map(function(val){
                 return {
                     titulo: val.titulo,
@@ -87,9 +84,7 @@ app.get('/',(req,res)=>{
 
 
 app.get('/:slug',(req,res)=>{
-    // res.send(req.params.slug);
     Posts.findOneAndUpdate({slug: req.params.slug},{$inc: {vews: 1}},{new: true},function(err,resposta){
-        // console.log(resposta);
         if(resposta != null){
             Posts.find({}).sort({'vews': 1}).limit(4).exec(function(err,postsTop){
                 postsTop = postsTop.map(function(val){
@@ -105,7 +100,6 @@ app.get('/:slug',(req,res)=>{
                 })
                 res.render('single',{noticia:resposta,postsTop:postsTop});
             })
-            // res.render('single',{noticia:resposta});
         }else{
             res.send(`
                 <h1>404</h1>

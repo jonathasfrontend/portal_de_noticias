@@ -45,7 +45,8 @@ header .logo h2 a{
     width: 500px;
     height: 40px;
     border: none;
-    background-color: #f5f5f5;
+    background-color: #a0a0a0;
+    color: #ffffff;
     border-radius: 10px;
     margin: 20px 0;
     padding-left: 20px;
@@ -62,7 +63,8 @@ header .logo h2 a{
     width: 500px;
     height: 350px;
     border: none;
-    background-color: #f2f2f2;
+    background-color: #a0a0a0;
+    color: #ffffff;
     border-radius: 10px;
     margin: 20px 0;
     padding: 20px;
@@ -73,13 +75,29 @@ header .logo h2 a{
     width: 300px;
     height: 40px;
     border: none;
-    background-color: #f2f2f2;
+    background-color: #a0a0a0;
+    color: #ffffff;
     border-radius: 10px;
     margin: 20px 0;
     padding-left: 20px;
     outline: none;
     cursor: pointer;
 }
+input[type=file]{
+    padding-left: 0;
+}
+input[type=file]::-webkit-file-upload-button {
+    border: none;
+    width: 150px;
+    height: 100%;
+    background-color: #636363;
+    color: #ffffff;
+    outline: none;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Montserrat';
+    cursor: pointer;
+  }
 
 .noticia-single{
     width: 100%;
@@ -114,5 +132,8 @@ header .logo h2 a{
     background-color: #008bb4;
     text-decoration: none;
     border-radius: 10px;
+    color: #ffffff;
+}
+::-webkit-input-placeholder{
     color: #ffffff;
 }

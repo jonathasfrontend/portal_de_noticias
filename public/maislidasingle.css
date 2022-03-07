@@ -10,7 +10,7 @@
     height: 100%;
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 5% 20px;
 }
 .container-news-single .news-single-cont .noticia-single{
     width: 100%;
@@ -103,6 +103,12 @@
 .mais-lidas .mais-lidas-noticias .cont-single .title-single p{
     color: #7B8591;
     font-size: 12px;
+}
+.mais-lidas .mais-lidas-noticias .cont-single .title-single a{
+    color: #0b6bdf;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
 }
 .mais-lidas .mais-lidas-noticias .cont-single .title-single span{
     color: #686868;
