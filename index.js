@@ -149,13 +149,13 @@ if(formato2[formato2.length - 1] == 'jpg'){
 
     Posts.create({
     titulo: req.body.titulo_noticia,
-    imagem: 'http://localhost:3000/public/images/upload/' || 'https://jonanews.herokuapp.com/'+imagem,
+    imagem: 'http://localhost:3000/public/images/upload/' || 'https://jonanews.herokuapp.com/public/images/upload/'+imagem,
     categoria: req.body.categoria,
     conteudo: req.body.noticia,
     slug: req.body.slug,
     author: req.body.autor,
     vews: 0,
-    imagemCapa: 'http://localhost:3000/public/images/capa/' || 'https://jonanews.herokuapp.com/'+imagemcapa,
+    imagemCapa: 'http://localhost:3000/public/images/capa/' || 'https://jonanews.herokuapp.com/public/images/capa/'+imagemcapa,
 })
 res.redirect('/admin/login');
 })
