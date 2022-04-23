@@ -135,27 +135,27 @@ var imagemcapa = ""
 
 if(formato[formato.length - 1] == 'jpg'){
     imagem = new Date().getTime()+'.jpg';
-    req.files.arquivo.mv(__dirname+'/public/imagens/upload/'+imagem);
+    req.files.arquivo.mv(__dirname+'/public/images/upload/'+imagem);
 }else{
     fs.unlinkSync(req.files.arquivo.tempFilePath);
 }
 
 if(formato2[formato2.length - 1] == 'jpg'){
     imagemcapa = new Date().getTime()+'.jpg';
-    req.files.arquivocapa.mv(__dirname+'/public/imagens/capa/'+imagemcapa);
+    req.files.arquivocapa.mv(__dirname+'/public/images/capa/'+imagemcapa);
 }else{
     fs.unlinkSync(req.files.arquivocapa.tempFilePath);
 }
 
     Posts.create({
     titulo: req.body.titulo_noticia,
-    imagem:'https://jonanews.herokuapp.com/public/imagens/upload/'+imagem,
+    imagem: 'http://localhost:3000/public/images/upload/'+imagem,
     categoria: req.body.categoria,
     conteudo: req.body.noticia,
     slug: req.body.slug,
     author: req.body.autor,
     vews: 0,
-    imagemCapa:'https://jonanews.herokuapp.com/public/imagens/capa/'+imagemcapa,
+    imagemCapa:'http://localhost:3000/public/images/capa/'+imagemcapa,
 })
 res.redirect('/admin/login');
 })

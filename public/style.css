@@ -195,7 +195,7 @@ section.noticia-destaque .center{
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: center;
+    justify-content: center;
     padding: 2em 20px;
 }
 .content-noticias .ultimas-noticias .noticias{
