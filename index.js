@@ -116,8 +116,8 @@ app.get('/:slug',(req,res)=>{
 
 var usuarios = [
     {
-        nome: 'Jonathas',
-        senha: 'Jonathass001'
+        nome: 'jonathass5678@gmail.com',
+        senha: '2018229332520213028730'
     }
 ]
 
