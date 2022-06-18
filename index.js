@@ -35,6 +35,7 @@ app.set('views', path.join(__dirname, '/pages'));
 
 app.get('/',(req,res)=>{
     if(req.query.busca == null){
+
         Posts.find({}).sort({'_id': -1}).exec(function(err,posts){
             posts = posts.map(function(val){
                 return{
@@ -63,7 +64,9 @@ app.get('/',(req,res)=>{
             })
 
         })
+
     }else{
+
         Posts.find({titulo: {$regex: req.query.busca, $options: 'i'}},function(err,posts){
             posts = posts.map(function(val){
                 return {
@@ -78,6 +81,7 @@ app.get('/',(req,res)=>{
         })
             res.render('busca',{posts:posts,contagem:posts.length});
         })
+
     }
   
 });
@@ -126,6 +130,28 @@ app.post('/admin/login',(req,res)=>{
     res.redirect('/admin/login')
 })
 
+app.get('/admin/login',(req,res)=>{
+
+    if(req.session.login == null){
+        res.render('admin-login');
+    }else{
+        Posts.find({}).sort({'_id': -1}).exec(function(err,posts){
+            posts = posts.map(function(val){
+                    return {
+                        id: val._id,
+                        titulo: val.titulo,
+                        conteudo: val.conteudo,
+                        descricaoCurta: val.conteudo.substr(0,100),
+                        imagem: val.imagem,
+                        slug: val.slug,
+                        categoria: val.categoria
+                    }
+            })
+            res.render('admin-painel',{posts:posts});
+        })
+    }
+});
+
 app.post('/admin/cadastro',(req,res)=>{
 
 let formato = req.files.arquivo.name.split('.');
@@ -149,13 +175,13 @@ if(formato2[formato2.length - 1] == 'jpg'){
 
     Posts.create({
     titulo: req.body.titulo_noticia,
-    imagem: 'http://localhost:3000/public/images/upload/'+imagem,
+    imagem: 'http://jonanews.herokuapp.com/public/images/upload/'+imagem,
     categoria: req.body.categoria,
     conteudo: req.body.noticia,
     slug: req.body.slug,
     author: req.body.autor,
     vews: 0,
-    imagemCapa:'http://localhost:3000/public/images/capa/'+imagemcapa,
+    imagemCapa:'http://jonanews.herokuapp.com/public/images/capa/'+imagemcapa,
 })
 res.redirect('/admin/login');
 })
@@ -165,28 +191,6 @@ app.get('/admin/deletar/:id',(req,res)=>{
         res.redirect('/admin/login');
     })
 })
-
-app.get('/admin/login',(req,res)=>{
-
-    if(req.session.login == null){
-        res.render('admin-login');
-    }else{
-        Posts.find({}).sort({'_id': -1}).exec(function(err,posts){
-            posts = posts.map(function(val){
-                    return {
-                        id: val._id,
-                        titulo: val.titulo,
-                        conteudo: val.conteudo,
-                        descricaoCurta: val.conteudo.substr(0,100),
-                        imagem: val.imagem,
-                        slug: val.slug,
-                        categoria: val.categoria
-                    }
-            })
-            res.render('admin-painel',{posts:posts});
-        })
-    }
-});
 
 app.listen(process.env.PORT || 3000,()=>{
     console.log('server rodando!');
